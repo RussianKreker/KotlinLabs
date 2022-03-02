@@ -22,7 +22,7 @@ class YoutubeVideo(title: String, val url: URL) : Video(title)
 class TvShowEpisode(title: String, val season: Int, val series: Int) : Video(title)
 
 class PlayList() {
-    private var videos: MutableList<Video> = mutableListOf()
+    private val videos: MutableList<Video> = mutableListOf()
 
     fun addVideo(video: Video) {
         videos.add(video)
@@ -30,21 +30,13 @@ class PlayList() {
 
     fun playNext() {
         if (videos.isNotEmpty()) {
-                println("Playing next video")
-                println("Now playing ${videos[0].title}")
-                videos.removeAt(0)
+            videos.removeAt(0)
         } else {
-            println("Playlist is empty")
+            throw Exception("Playlist is empty")
         }
     }
 
-    fun getAllVideos()  {
-        if (videos.isNotEmpty()) {
-            println("Playlist:")
-            videos.forEach { video ->
-                println(video.title)
-            }
-        }else {
-            println("Playlist is empty")}
+    fun getAllVideos(): MutableList<Video> {
+        return videos
     }
 }

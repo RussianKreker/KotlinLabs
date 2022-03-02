@@ -32,6 +32,7 @@ fun main() {
     val series2 = TvShowEpisode("Голяк", 1, 1)
 
     val playList = PlayList()
+    var templist: MutableList<Video> = playList.getAllVideos()
     playList.addVideo(movie1)
     playList.addVideo(movie2)
     playList.addVideo(youTube1)
@@ -39,23 +40,38 @@ fun main() {
     playList.addVideo(series1)
     playList.addVideo(series2)
 
-    playList.getAllVideos()
+    templist.forEach { video ->
+        println(video.title)
+    }
     println("=======================")
     playList.playNext()
-    playList.getAllVideos()
+    templist.forEach { video ->
+        println(video.title)
+    }
     println("=======================")
     playList.playNext()
-    playList.getAllVideos()
+    templist = playList.getAllVideos()
+    templist.forEach { video ->
+        println(video.title)
+    }
     println("=======================")
     playList.playNext()
+    templist = playList.getAllVideos()
+    templist.forEach { video ->
+        println(video.title)
+    }
     println("=======================")
     playList.playNext()
+    templist = playList.getAllVideos()
+    templist.forEach { video ->
+        println(video.title)
+    }
     println("=======================")
     playList.playNext()
-    playList.getAllVideos()
-    println("=======================")
-    playList.playNext()
-    playList.getAllVideos()
+    templist = playList.getAllVideos()
+    templist.forEach { video ->
+        println(video.title)
+    }
     println("=======================")
     playList.playNext()
 }
